@@ -12,6 +12,10 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <!-- Items para que la barra de opciones ActionMode tenga el aspecto de la toolbar
+        y se situe en lugar de esta-->
+        <item name="actionModeBackground">@color/purple_500</item>
+        <item name="windowActionModeOverlay">true</item>
     </style>
 
     <style name="Theme.DI_Tema4_Practica1_Ejercicio2.NoActionBar">

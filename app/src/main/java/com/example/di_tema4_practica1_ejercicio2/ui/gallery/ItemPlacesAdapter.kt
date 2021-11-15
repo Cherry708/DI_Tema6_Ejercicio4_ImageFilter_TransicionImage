@@ -1,21 +1,21 @@
 package com.example.di_tema4_practica1_ejercicio2
 
-import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.RecyclerView
 
-class ItemPlacesAdapter(var listaItems: ArrayList<ItemPlaces>) : RecyclerView.Adapter<ItemPlacesAdapter.ItemViewHolder>() {
-    lateinit var onClick : (View) -> Unit
-
+class ItemPlacesAdapter(var listaItems: ArrayList<ItemPlaces>) :
+    RecyclerView.Adapter<ItemPlacesAdapter.ItemViewHolder>() {
+    /*Sustituimos onClick con on LongClick*/
+    lateinit var onLongClick : (View) -> Unit
 
     //La clase declarada como itemViewHolder hereda, es, un ViewHolder
-    class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ItemViewHolder(itemView: View):
+        RecyclerView.ViewHolder(itemView)
+        /*es: View.OnCreateContextMenuListener*/ {
 
         /*
         Si son privadas no son accesibles en onBindViewHolder
@@ -31,24 +31,40 @@ class ItemPlacesAdapter(var listaItems: ArrayList<ItemPlaces>) : RecyclerView.Ad
             btnCancelar = itemView.findViewById(R.id.btnCancelar)
             titulo = itemView.findViewById(R.id.tvTitulo)
             imagen = itemView.findViewById(R.id.ivImage)
+            //itemView.setOnCreateContextMenuListener(this)
 
         }
 
-        fun bindTarjeta(item: ItemPlaces, onClick: (View) -> Unit) = with(itemView) {
+        fun bindTarjeta(item: ItemPlaces, onLongClick: (View) -> Unit) = with(itemView) {
             titulo.setText(item.titulo)
             imagen.setImageResource(item.imagen)
-            setOnClickListener { onClick(itemView) }
+            setOnLongClickListener { onLongClick(itemView)
+                true }
         }
+
+        //Menu contextual
+        /*
+        override fun onCreateContextMenu(
+            contextMenu: ContextMenu,
+            view: View,
+            contextMenuInfo: ContextMenu.ContextMenuInfo?
+        ) {
+            contextMenu.add(0, 0, adapterPosition, "Editar")     //groupId, itemId, order, title
+            contextMenu.add(0, 1, adapterPosition, "Eliminar")
+            contextMenu.add(0, 2, adapterPosition, "Compartir")
+        }
+         */
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ItemViewHolder {
-        val itemView = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_places, viewGroup, false)
+        val itemView =
+            LayoutInflater.from(viewGroup.context).inflate(R.layout.item_places, viewGroup, false)
         return ItemViewHolder(itemView)
     }
 
     override fun onBindViewHolder(viewHolder: ItemViewHolder, pos: Int) {
         val itemPlaces = listaItems.get(pos)
-        viewHolder.bindTarjeta(itemPlaces, onClick)
+        viewHolder.bindTarjeta(itemPlaces, onLongClick)
 
 
         /*viewHolder.itemToolbar.setOnMenuItemClickListener(object: Toolbar.OnMenuItemClickListener{
@@ -74,4 +90,5 @@ class ItemPlacesAdapter(var listaItems: ArrayList<ItemPlaces>) : RecyclerView.Ad
     override fun getItemCount(): Int {
         return listaItems.size
     }
+
 }

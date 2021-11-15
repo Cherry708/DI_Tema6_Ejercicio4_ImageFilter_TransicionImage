@@ -24,6 +24,9 @@
     <string name="action_information">Information</string>
     <string name="card8">Card8</string>
     <string name="card9">Card9</string>
+    <string name="editar">Editar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="compartir">Compartir</string>
 
 
 </resources>

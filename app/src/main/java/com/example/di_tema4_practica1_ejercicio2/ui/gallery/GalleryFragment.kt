@@ -1,9 +1,8 @@
 package com.example.di_tema4_practica1_ejercicio2.ui.gallery
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.util.Log
+import android.view.*
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -52,10 +51,54 @@ class GalleryFragment : Fragment() {
         recView.adapter = adaptador
         recView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
-        adaptador.onClick = {}
+        //Que sucede en onLongClick
+        adaptador.onLongClick = { view ->
+            view.startActionMode(modeCallBack)
+        }
 
         return root
     }
+
+    /*
+    Barra de opciones
+     */
+    var modeCallBack: ActionMode.Callback = object : ActionMode.Callback {
+        override fun onActionItemClicked(mode: ActionMode?, item: MenuItem?): Boolean {
+            val id = item?.itemId
+            when (id) {
+                R.id.action_editar -> {
+                    Log.i("MainActivity", "editar")
+                    mode?.finish()
+                }
+                R.id.action_eliminar -> {
+                    Log.i("MainActivity", "eliminar")
+                    mode?.finish()
+                }
+                R.id.action_compartir -> {
+                    Log.i("MainActivity", "compartir")
+                    mode?.finish()
+                }
+                else -> return false
+            }
+            return true
+        }
+
+        override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean {
+            return false
+        }
+
+        override fun onDestroyActionMode(mode: ActionMode?) {
+            var mode = mode
+            mode = null
+        }
+
+        override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
+            mode.setTitle("Options")
+            mode.getMenuInflater().inflate(R.menu.menu_context, menu)
+            return true
+        }
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
