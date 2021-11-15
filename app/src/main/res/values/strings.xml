@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">DI_Tema4_Practica1_Ejercicio2</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string name="card1">Card1</string>
+    <string name="card2">Card2</string>
+    <string name="card3">Card3</string>
+    <string name="card4">Card4</string>
+    <string name="card5">Card5</string>
+    <string name="card6">Card6</string>
+    <string name="card7">Card7</string>
+    <string name="cancel">Cancel</string>
+    <string name="accept">Accept</string>
+    <string name="titulo">TextView</string>
+    <string name="action_information">Information</string>
+    <string name="card8">Card8</string>
+    <string name="card9">Card9</string>
+
+
+</resources>
