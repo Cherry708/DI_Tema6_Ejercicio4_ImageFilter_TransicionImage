@@ -27,6 +27,18 @@
     <string name="editar">Editar</string>
     <string name="eliminar">Eliminar</string>
     <string name="compartir">Compartir</string>
+    <string name="menu_contacts">Contacts</string>
+
+    <string name="name1">Contacto Uno</string>
+    <string name="name2">Contacto Dos</string>
+    <string name="name3">Contacto Tres</string>
+    <string name="name4">Contacto Cuatro</string>
+    <string name="name5">Contacto Cinco</string>
+    <string name="name6">Contacto Seis</string>
+    <string name="name7">Contacto Siete</string>
+    <string name="name8">Contacto Ocho</string>
+    <string name="name9">Contacto Nueve</string>
+    <string name="name10">Contacto Diez</string>
 
 
 </resources>

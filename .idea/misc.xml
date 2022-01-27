@@ -5,7 +5,10 @@
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.12943262411347517" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.12943262411347517" />
+        <entry key="app/src/main/res/layout/fragment_contacts.xml" value="0.13069908814589665" />
         <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.12943262411347517" />
+        <entry key="app/src/main/res/layout/fragment_item_list.xml" value="0.13069908814589665" />
+        <entry key="app/src/main/res/layout/item_contacts.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_places.xml" value="0.12943262411347517" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.26205128205128203" />
         <entry key="app/src/main/res/menu/menu_context.xml" value="0.26205128205128203" />
