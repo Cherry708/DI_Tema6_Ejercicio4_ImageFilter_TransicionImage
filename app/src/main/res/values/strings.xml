@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">DI_Tema4_Practica1_Ejercicio2</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -40,5 +40,6 @@
     <string name="name9">Contacto Nueve</string>
     <string name="name10">Contacto Diez</string>
 
+    <string name="altImage" tools:ignore="ReferenceType">@drawable/ic_mail_blue</string>
 
 </resources>

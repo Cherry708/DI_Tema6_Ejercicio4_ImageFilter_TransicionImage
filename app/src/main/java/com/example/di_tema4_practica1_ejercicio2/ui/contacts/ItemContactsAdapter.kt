@@ -1,7 +1,6 @@
 package com.example.di_tema4_practica1_ejercicio2
 
 import android.view.*
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.utils.widget.ImageFilterView
@@ -32,11 +31,20 @@ class ItemContactsAdapter(var listaItems: ArrayList<ItemContacts>) :
         }
 
         fun bindTarjeta(item: ItemContacts, onLongClick: (View) -> Unit) = with(itemView) {
+            var isCrossfaded = false
             titulo.setText(item.contacText)
             imagen.setImageResource(item.contactImageFilter)
             imagen.setOnClickListener {
                 //TODO: implementar animacion, o bien cambiando el layout a motion o con logica aqui
-                imagen.saturation = 0f
+                if(!isCrossfaded) {
+                    //La rotacion no tiene animacion
+                    imagen.rotationY = 180f
+                    imagen.crossfade = 1f
+                    isCrossfaded = true
+                } else if(isCrossfaded){
+                    imagen.crossfade = 0f
+                    isCrossfaded = false
+                }
                 Toast.makeText(context, "ImageClicked", Toast.LENGTH_SHORT).show()
             }
 
