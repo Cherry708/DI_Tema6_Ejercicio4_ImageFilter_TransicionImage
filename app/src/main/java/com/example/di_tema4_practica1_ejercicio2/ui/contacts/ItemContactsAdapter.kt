@@ -1,15 +1,16 @@
 package com.example.di_tema4_practica1_ejercicio2
 
+import android.animation.ObjectAnimator
 import android.view.*
 import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.utils.widget.ImageFilterView
+import androidx.core.animation.doOnEnd
 import androidx.recyclerview.widget.RecyclerView
 
 class ItemContactsAdapter(var listaItems: ArrayList<ItemContacts>) :
     RecyclerView.Adapter<ItemContactsAdapter.ItemViewHolder>() {
-    /*Sustituimos onClick con on LongClick*/
-    lateinit var onLongClick : (View) -> Unit
+    lateinit var onClick : (View) -> Unit
 
     //La clase declarada como itemViewHolder hereda, es, un ViewHolder
     class ItemViewHolder(itemView: View):
@@ -32,18 +33,25 @@ class ItemContactsAdapter(var listaItems: ArrayList<ItemContacts>) :
 
         fun bindTarjeta(item: ItemContacts, onLongClick: (View) -> Unit) = with(itemView) {
             var isCrossfaded = false
-            titulo.setText(item.contacText)
+            titulo.setText(item.contactText)
             imagen.setImageResource(item.contactImageFilter)
+
+            val startAnimation = ObjectAnimator.ofFloat(imagen, "rotationY",0f,180f )
             imagen.setOnClickListener {
                 //TODO: implementar animacion, o bien cambiando el layout a motion o con logica aqui
+
                 if(!isCrossfaded) {
-                    //La rotacion no tiene animacion
-                    imagen.rotationY = 180f
-                    imagen.crossfade = 1f
-                    isCrossfaded = true
+                    startAnimation.duration = 1000
+                    startAnimation.start()
+                    startAnimation.doOnEnd {
+                        imagen.crossfade = 1f
+                        isCrossfaded = true }
                 } else if(isCrossfaded){
-                    imagen.crossfade = 0f
-                    isCrossfaded = false
+                    startAnimation.duration = 1000
+                    startAnimation.start()
+                    startAnimation.doOnEnd {
+                        imagen.crossfade = 0f
+                        isCrossfaded = false }
                 }
                 Toast.makeText(context, "ImageClicked", Toast.LENGTH_SHORT).show()
             }
@@ -75,7 +83,7 @@ class ItemContactsAdapter(var listaItems: ArrayList<ItemContacts>) :
 
     override fun onBindViewHolder(viewHolder: ItemViewHolder, pos: Int) {
         val itemContacts = listaItems.get(pos)
-        viewHolder.bindTarjeta(itemContacts, onLongClick)
+        viewHolder.bindTarjeta(itemContacts, onClick)
 
         /*viewHolder.itemToolbar.setOnMenuItemClickListener(object: Toolbar.OnMenuItemClickListener{
             override fun onMenuItemClick(item: MenuItem): Boolean{

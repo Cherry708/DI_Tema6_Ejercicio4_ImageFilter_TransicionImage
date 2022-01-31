@@ -1,14 +1,18 @@
 package com.example.di_tema4_practica1_ejercicio2.ui.contacts
 
-import android.icu.lang.UCharacter
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.TextView
+import androidx.core.app.ActivityOptionsCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.di_tema4_practica1_ejercicio2.*
 import com.example.di_tema4_practica1_ejercicio2.databinding.FragmentContactsBinding
+import androidx.core.util.Pair
+import com.example.di_tema4_practica1_ejercicio2.ui.contact.Contact
 
 class ContactsFragment : Fragment() {
 
@@ -51,8 +55,20 @@ class ContactsFragment : Fragment() {
         contactsRecView.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL, false)
 
         //Que sucede en onLongClick
-        adaptador.onLongClick = { view ->
-            view.startActionMode(modeCallBack)
+        adaptador.onClick = {
+            val item = listaContacts.get(contactsRecView.getChildAdapterPosition(it))
+            val intent = Intent(context, Contact::class.java)
+            val contactText = it.findViewById<TextView>(R.id.contactText)
+
+            val pair = Pair.create<View, String>(contactText, contactText.transitionName)
+
+            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), pair).toBundle()
+
+            options?.putInt("contactText", item.contactText)
+
+            intent.putExtras(options!!)
+            startActivity(intent, options)
+
         }
 
         //TODO: cambiar a onClick en el adaptador
