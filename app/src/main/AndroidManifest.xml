@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DI_Tema4_Practica1_Ejercicio2">
         <activity
+            android:name=".ui.contact.Contact"
+            android:exported="true" />
+        <activity
             android:name=".ui.contact.contact"
             android:exported="true" />
         <activity

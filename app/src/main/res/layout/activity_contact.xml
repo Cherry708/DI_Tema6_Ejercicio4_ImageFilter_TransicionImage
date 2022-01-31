@@ -4,6 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.contact.contact">
+    tools:context=".ui.contact.Contact">
 
+    <TextView
+        android:id="@+id/contactTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        android:textSize="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="359dp"
+        android:layout_height="606dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae elementum curabitur vitae nunc. Aliquam malesuada bibendum arcu vitae elementum curabitur vitae nunc. Arcu vitae elementum curabitur vitae nunc sed velit. In nisl nisi scelerisque eu ultrices vitae auctor eu. Proin nibh nisl condimentum id venenatis. Sit amet luctus venenatis lectus magna. Odio tempor orci dapibus ultrices in iaculis nunc sed augue. Sollicitudin tempor id eu nisl nunc mi. Orci nulla pellentesque dignissim enim sit amet venenatis urna cursus. Nulla facilisi morbi tempus iaculis urna id. Malesuada proin libero nunc consequat interdum varius sit amet mattis. In nisl nisi scelerisque eu ultrices vitae auctor eu augue. Facilisis sed odio morbi quis commodo odio aenean. Molestie ac feugiat sed lectus vestibulum.  Vestibulum lectus mauris ultrices eros in cursus turpis massa. Elementum pulvinar etiam non quam lacus suspendisse faucibus. Tellus pellentesque eu tincidunt tortor aliquam nulla. Diam vulputate ut pharetra sit amet aliquam id diam."
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contactTitle" />
 </androidx.constraintlayout.widget.ConstraintLayout>

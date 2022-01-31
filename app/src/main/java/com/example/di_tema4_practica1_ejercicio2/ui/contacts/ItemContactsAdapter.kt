@@ -31,7 +31,7 @@ class ItemContactsAdapter(var listaItems: ArrayList<ItemContacts>) :
 
         }
 
-        fun bindTarjeta(item: ItemContacts, onLongClick: (View) -> Unit) = with(itemView) {
+        fun bindTarjeta(item: ItemContacts, onClick: (View) -> Unit) = with(itemView) {
             var isCrossfaded = false
             titulo.setText(item.contactText)
             imagen.setImageResource(item.contactImageFilter)
@@ -55,9 +55,7 @@ class ItemContactsAdapter(var listaItems: ArrayList<ItemContacts>) :
                 }
                 Toast.makeText(context, "ImageClicked", Toast.LENGTH_SHORT).show()
             }
-
-            setOnLongClickListener { onLongClick(itemView)
-                true }
+            setOnClickListener{ onClick(itemView) }
         }
 
 

@@ -16,6 +16,13 @@
         y se situe en lugar de esta-->
         <item name="actionModeBackground">@color/purple_500</item>
         <item name="windowActionModeOverlay">true</item>
+
+        <!-- enable window content transitions -->
+        <item name="android:windowContentTransitions">true</item>
+
+        <!-- specify transitions -->
+        <item name="android:windowEnterTransition">@transition/explode</item>
+        <item name="android:windowExitTransition">@transition/explode</item>
     </style>
 
     <style name="Theme.DI_Tema4_Practica1_Ejercicio2.NoActionBar">
